@@ -54,6 +54,7 @@ namespace WebShop.Areas.Sales.Controllers
             ViewBag.Number = itemincartlist.Count();
             return itemincartlist;
         }
+
         public ActionResult Cart(string username)
         {
             ViewBag.user_logined = HttpContext.Application["user_logined"];

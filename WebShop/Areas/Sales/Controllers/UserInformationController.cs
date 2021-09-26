@@ -38,7 +38,8 @@ namespace WebShop.Areas.Sales.Controllers
             var name_var = new SqlParameter("@name", name);
             var phone_number_var = new SqlParameter("@phone_number", phone);
             var address_var = new SqlParameter("@address", address);
-            var result = db.Database.ExecuteSqlCommand("exec update_MEMBER_information @member_id, @name, @phone_number, @address", member_id_var, name_var, phone_number_var, address_var);
+            var result = db.Database.ExecuteSqlCommand("exec update_MEMBER_information @member_id, @name, @phone_number, @address", 
+                                                                                member_id_var, name_var, phone_number_var, address_var);
 
             if (HttpContext.Application["is_logined"].ToString() == "1")
             {

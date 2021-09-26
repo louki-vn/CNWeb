@@ -159,6 +159,7 @@ namespace WebShop.Areas.Sales.Controllers
 
             return View("~/Areas/Sales/Views/ProductSales/Product.cshtml", productpluslist);
         }
+
         public ActionResult Get_Product_Base_On_Price(int along)
         {
             ViewBag.user_logined = HttpContext.Application["user_logined"];
