@@ -11,83 +11,17 @@ namespace WebShop.Models
 {
     public class Data
     {
-        Shop db = new Shop();
-
-        public static string user_logined
-        {
-            get
-            {
-                return (string)HttpContext.Current.Application["user_logined"];
-            }
-            set
-            {
-                HttpContext.Current.Application["user_logined"] = value;
-            }
-        }
-
-        public static int is_logined
-        {
-            get
-            {
-                return (int)HttpContext.Current.Application["is_logined"];
-            }
-            set
-            {
-                HttpContext.Current.Application["is_logined"] = value;
-            }
-        }        
-
-        public int Login(string username, string password)
-        {
-            object[] para =
-            {
-                new SqlParameter("@username", username),
-                new SqlParameter("@password", password)
-            };
-
-            var ret = db.MEMBERs.SqlQuery("CheckMember @username, @password", para).ToList();
-            if (ret.Count > 0)
-            {
-                if (ret[0].role == 0)
-                {
-                    user_logined = ret[0].name;
-                    is_logined = 1;
-                    return 2;
-                }
-            }
-            return 0;
-        }
-
-        public int Register(string name, string username, string password, string address, string phone)
-        {
-            object[] para =
-            {
-                new SqlParameter("@name", name),
-                new SqlParameter("@username", username),
-                new SqlParameter("@password", password),
-                new SqlParameter("@address", address),
-                new SqlParameter("@phone", phone)
-            };
-            db.Database.ExecuteSqlCommand("AddMember @name, @username, @password, @address, @phone", para);
-
-            return 0;
-        }
+        Shop db = new Shop();      
 
         public static string MD5Hash(string text)
         {
-            MD5 md5 = new MD5CryptoServiceProvider();           
-
-            //compute hash from the bytes of text  
+            MD5 md5 = new MD5CryptoServiceProvider();   
             md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
-
-            //get hash result after compute it  
             byte[] result = md5.Hash;
 
             StringBuilder strBuilder = new StringBuilder();
             for (int i = 0; i < result.Length; i++)
             {
-                //change it into 2 hexadecimal digits  
-                //for each byte  
                 strBuilder.Append(result[i].ToString("x2"));
             }
             return strBuilder.ToString();
@@ -97,7 +31,6 @@ namespace WebShop.Models
         {          
             var user = new SqlParameter("@username", username);
             var result_member = db.Database.SqlQuery<MEMBER>("exec get_MEMBER_from_username @username", user).ToList();
-
 
             // Lấy cart của member đó và từ đó lấy ra những Item nằm trong cart đó.
             var cart_id_var = new SqlParameter("@cart_id", result_member[0].member_id);

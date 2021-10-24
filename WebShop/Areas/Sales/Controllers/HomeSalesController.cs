@@ -29,11 +29,11 @@ namespace WebShop.Areas.Sales.Controllers
             ViewBag.qty = qty;
             Mix_PRODUCT_And_PRODUCT_Plus(product1list, productpluslist);
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }

@@ -8,9 +8,6 @@ namespace WebShop
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            Data.user_logined = "";
-            Data.is_logined = 0;
-
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(

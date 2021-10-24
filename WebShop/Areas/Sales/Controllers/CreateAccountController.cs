@@ -24,10 +24,7 @@ namespace WebShop.Areas.Sales.Controllers
             string address = form.Get("customer[address]").ToString();
             string phone = form.Get("customer[phone]").ToString();
             string name = form.Get("customer[name]").ToString();
-            var u = new SqlParameter("@username", username);
-
-            //List<PRODUCT> product1list = new List<PRODUCT>();
-            //Home_Load(product1list);
+            var u = new SqlParameter("@username", username);            
 
             var result = db.Database.SqlQuery<MEMBER>("exec getMEMBERfromusername @username", u).ToList();
             int check = result.Count();
@@ -45,26 +42,13 @@ namespace WebShop.Areas.Sales.Controllers
                 db.Database.ExecuteSqlCommand("exec createaccount @username, @name, @password, @phone, @address",
                                                             username2var, namevar, passvar, phonevar, addressvar);
 
-                HttpContext.Application["user_logined"] = username;
-                HttpContext.Application["is_logined"] = 1;
-                ViewBag.user_logined = HttpContext.Application["user_logined"];
-                ViewBag.is_logined = HttpContext.Application["is_logined"];
+                Session["user_logined"] = username;
+                Session["is_logined"] = 1;
+                ViewBag.user_logined = Session["user_logined"];
+                ViewBag.is_logined = Session["is_logined"];
 
                 return RedirectToAction("Home", "HomeSales", new { area = "Sales" });
             }
-        }
-
-        //public void Home_Load(List<PRODUCT> product1list)
-        //{
-        //    int doda = 2;
-        //    var id_var = new SqlParameter("@group_id", doda);
-        //    var result = db.Database.SqlQuery<PRODUCT>("exec get_product_from_PRODUCT_GROUP @group_id", id_var).ToList();
-        //    int qty = result.Count();
-        //    for (int i = 0; i < qty; i++)
-        //    {
-        //        product1list.Add(result[i]);
-        //    }
-        //    ViewBag.qty = qty;
-        //}
+        }       
     }
 }

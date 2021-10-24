@@ -14,7 +14,7 @@ namespace WebShop.Areas.Sales.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            HttpContext.Application["is_logined"] = 0;
+            Session["is_logined"] = 0;
             
             return View();
         }
@@ -32,8 +32,8 @@ namespace WebShop.Areas.Sales.Controllers
             {
                 Session["user_logined"] = username;
                 Session["is_logined"] = 1;
-                ViewBag.user_logined = HttpContext.Application["user_logined"];
-                ViewBag.is_logined = HttpContext.Application["is_logined"];
+                ViewBag.user_logined = Session["user_logined"];
+                ViewBag.is_logined = Session["is_logined"];
                 
                 if (result[0].role == 0)
                 {

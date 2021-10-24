@@ -29,11 +29,11 @@ namespace WebShop.Areas.Sales.Controllers
             Mix_PRODUCT_And_PRODUCT_Plus(productlist, productpluslist);
             ViewBag.qty = qty;
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }            
@@ -59,11 +59,11 @@ namespace WebShop.Areas.Sales.Controllers
             ViewBag.qty = qty;
             ViewBag.product_id = product_id;
 
-            if(HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }            
@@ -100,11 +100,11 @@ namespace WebShop.Areas.Sales.Controllers
             ViewBag.qty = qty;
             Mix_PRODUCT_And_PRODUCT_Plus(productlist, productpluslist);
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }
@@ -148,11 +148,11 @@ namespace WebShop.Areas.Sales.Controllers
             Mix_PRODUCT_And_PRODUCT_Plus(productlist, productpluslist);
             ViewBag.qty = qty;
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }
@@ -181,11 +181,11 @@ namespace WebShop.Areas.Sales.Controllers
             Mix_PRODUCT_And_PRODUCT_Plus(productlist, productpluslist);
             ViewBag.qty = qty;
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }
@@ -214,11 +214,11 @@ namespace WebShop.Areas.Sales.Controllers
             Mix_PRODUCT_And_PRODUCT_Plus(productlist, productpluslist);
             ViewBag.qty = qty;
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }
@@ -247,11 +247,11 @@ namespace WebShop.Areas.Sales.Controllers
             Mix_PRODUCT_And_PRODUCT_Plus(productlist, productpluslist);
             ViewBag.qty = qty;
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }
@@ -313,14 +313,14 @@ namespace WebShop.Areas.Sales.Controllers
             List<PRODUCT> productlist = new List<PRODUCT>();
             string user = ViewBag.user_logined;
             string size = "S";
-            int item_qty = 1;            
+            int item_qty = 1;
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Add_To_Cart(user, Int32.Parse(id), item_qty, size, productlist);
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }
@@ -343,11 +343,11 @@ namespace WebShop.Areas.Sales.Controllers
             Mix_PRODUCT_And_PRODUCT_Plus(productlist, productpluslist);
             ViewBag.qty = qty;
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }
