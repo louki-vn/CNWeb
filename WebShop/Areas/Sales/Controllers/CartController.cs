@@ -57,24 +57,24 @@ namespace WebShop.Areas.Sales.Controllers
 
         public ActionResult Cart(string username)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             List<ItemInCart> itemincartlist = new List<ItemInCart>();
-            Get_Data(HttpContext.Application["user_logined"].ToString(), itemincartlist);
+            Get_Data(Session["user_logined"].ToString(), itemincartlist);
 
             return View(itemincartlist);
         }
 
         public ActionResult Remove_Item(string product_id)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             var product_id_var = new SqlParameter("@product_id", product_id);
-            var result = db.Database.ExecuteSqlCommand("exec remove_CART_ITEM_from_product_id @product_id", product_id_var);
+            db.Database.ExecuteSqlCommand("exec remove_CART_ITEM_from_product_id @product_id", product_id_var);
 
-            var username = HttpContext.Application["user_logined"].ToString();
+            var username = Session["user_logined"].ToString();
             List<ItemInCart> itemincartlist = new List<ItemInCart>();
             Get_Data(username, itemincartlist);
             return View("~/Areas/Sales/Views/Cart/Cart.cshtml", itemincartlist);
@@ -83,12 +83,12 @@ namespace WebShop.Areas.Sales.Controllers
 
         public ActionResult Remove_All_Item()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
-            var result = db.Database.ExecuteSqlCommand("exec remove_all_CART_ITEM");
+            db.Database.ExecuteSqlCommand("exec remove_all_CART_ITEM");
 
-            var username = HttpContext.Application["user_logined"].ToString();
+            var username = Session["user_logined"].ToString();
             List<ItemInCart> itemincartlist = new List<ItemInCart>();
             Get_Data(username, itemincartlist);
             return View("~/Areas/Sales/Views/Cart/Cart.cshtml", itemincartlist);

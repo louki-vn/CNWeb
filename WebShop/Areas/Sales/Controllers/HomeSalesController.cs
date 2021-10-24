@@ -13,8 +13,8 @@ namespace WebShop.Areas.Sales.Controllers
         [HttpGet]
         public ActionResult Home()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             int doda = 2;
             var id_var = new SqlParameter("@group_id", doda);
@@ -29,11 +29,11 @@ namespace WebShop.Areas.Sales.Controllers
             ViewBag.qty = qty;
             Mix_PRODUCT_And_PRODUCT_Plus(product1list, productpluslist);
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }

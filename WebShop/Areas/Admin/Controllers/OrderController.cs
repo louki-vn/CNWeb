@@ -11,8 +11,9 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/Order
         public ActionResult Index()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
+
             var result = db.TRANSACTIONs.ToList();
             return View(result);
         }
@@ -55,8 +56,8 @@ namespace WebShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Filter(string filter)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             //  Lọc đơn hàng theo tình trạng đơn hàng
             var type = new SqlParameter("@type", filter);

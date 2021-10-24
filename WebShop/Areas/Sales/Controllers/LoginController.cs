@@ -14,7 +14,7 @@ namespace WebShop.Areas.Sales.Controllers
         [HttpGet]
         public ActionResult Login()
         {
-            HttpContext.Application["is_logined"] = 0;
+            Session["is_logined"] = 0;
             
             return View();
         }
@@ -30,34 +30,11 @@ namespace WebShop.Areas.Sales.Controllers
             int check = result.Count();
             if (check != 0)
             {
-                HttpContext.Application["user_logined"] = username;
-                HttpContext.Application["is_logined"] = 1;
-                ViewBag.user_logined = HttpContext.Application["user_logined"];
-                ViewBag.is_logined = HttpContext.Application["is_logined"];
-
-                //int doda = 2;
-                //var id_var = new SqlParameter("@group_id", doda);
-                //var result_product = db.Database.SqlQuery<PRODUCT>("exec get_product_from_PRODUCT_GROUP @group_id", id_var).ToList();
-                //int qty = result_product.Count();
-                //List<PRODUCT> product1list = new List<PRODUCT>();
-                //List<PRODUCT_Plus> productpluslist = new List<PRODUCT_Plus>();
-
-                //for (int i = 0; i < qty; i++)
-                //{
-                //    product1list.Add(result_product[i]);
-                //}
-                //ViewBag.qty = qty;
-                //Mix_PRODUCT_And_PRODUCT_Plus(product1list, productpluslist);
-
-                //if (HttpContext.Application["is_logined"].ToString() == "1")
-                //{
-                //    Models.Data data = new Models.Data();
-                //    List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                //    data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
-                //    ViewBag.ItemInCart = itemincartlist;
-                //    ViewBag.Number = itemincartlist.Count();
-                //}
-
+                Session["user_logined"] = username;
+                Session["is_logined"] = 1;
+                ViewBag.user_logined = Session["user_logined"];
+                ViewBag.is_logined = Session["is_logined"];
+                
                 if (result[0].role == 0)
                 {
                     return RedirectToAction("Index", "HomeAdmin", new { area = "Admin" });
@@ -71,7 +48,7 @@ namespace WebShop.Areas.Sales.Controllers
         }
         public ActionResult Logout()
         {
-            HttpContext.Application["is_logined"] = 0;
+            Session["is_logined"] = 0;
             return View("~/Areas/Sales/Views/Login/Login.cshtml");
         }
 

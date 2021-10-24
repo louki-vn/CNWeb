@@ -11,8 +11,9 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/Category
         public ActionResult Index()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
+
             var result = db.CATEGORies.ToList();
             return View(result);
         }
@@ -49,8 +50,8 @@ namespace WebShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Filter(string filter)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             //  Lọc danh mục theo nhóm sản phẩm
             var type = new SqlParameter("@type", filter);

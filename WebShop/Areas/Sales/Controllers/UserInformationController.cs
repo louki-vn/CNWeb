@@ -12,19 +12,19 @@ namespace WebShop.Areas.Sales.Controllers
         // GET: UserInfomation
         public ActionResult UserInformation()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             var user_var = new SqlParameter("@username", ViewBag.user_logined);
             var result = db.Database.SqlQuery<MEMBER>("exec get_MEMBER_from_username @username", user_var).ToList();
             MEMBER user = new MEMBER();
             user = result[0];
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist,Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }
@@ -38,14 +38,14 @@ namespace WebShop.Areas.Sales.Controllers
             var name_var = new SqlParameter("@name", name);
             var phone_number_var = new SqlParameter("@phone_number", phone);
             var address_var = new SqlParameter("@address", address);
-            var result = db.Database.ExecuteSqlCommand("exec update_MEMBER_information @member_id, @name, @phone_number, @address", 
+            db.Database.ExecuteSqlCommand("exec update_MEMBER_information @member_id, @name, @phone_number, @address", 
                                                                                 member_id_var, name_var, phone_number_var, address_var);
 
-            if (HttpContext.Application["is_logined"].ToString() == "1")
+            if (ViewBag.is_logined == 1)
             {
                 Models.Data data = new Models.Data();
                 List<ItemInCart> itemincartlist = new List<ItemInCart>();
-                data.GetItemInCart(itemincartlist, HttpContext.Application["user_logined"].ToString());
+                data.GetItemInCart(itemincartlist, Session["user_logined"].ToString());
                 ViewBag.ItemInCart = itemincartlist;
                 ViewBag.Number = itemincartlist.Count();
             }
