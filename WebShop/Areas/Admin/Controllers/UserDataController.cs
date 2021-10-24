@@ -11,16 +11,16 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/UserData
         public ActionResult Index()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
             var result = db.MEMBERs.ToList();
             return View(result);
         }
         
         public ActionResult UserInfor()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
             return View();
         }
 
@@ -47,8 +47,8 @@ namespace WebShop.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Filter(string filter)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             //  Lọc danh sách thành viên theo vai trò
             var type = new SqlParameter("@type", filter);

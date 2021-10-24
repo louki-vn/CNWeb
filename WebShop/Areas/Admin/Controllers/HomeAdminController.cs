@@ -10,8 +10,9 @@ namespace WebShop.Areas.Admin.Controllers
         // GET: Admin/Home
         public ActionResult Index()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
+
             var mem = db.MEMBERs.ToList();
             var order = db.TRANSACTIONs.ToList();
             //  Số lượng thành viên

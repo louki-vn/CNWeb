@@ -12,8 +12,8 @@ namespace WebShop.Areas.Sales.Controllers
         // GET: UserInfomation
         public ActionResult UserInformation()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             var user_var = new SqlParameter("@username", ViewBag.user_logined);
             var result = db.Database.SqlQuery<MEMBER>("exec get_MEMBER_from_username @username", user_var).ToList();

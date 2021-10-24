@@ -12,8 +12,8 @@ namespace WebShop.Areas.Sales.Controllers
         // GET: Sales/RespondComplain
         public ActionResult RespondComplain()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             if (HttpContext.Application["is_logined"].ToString() == "1")
             {

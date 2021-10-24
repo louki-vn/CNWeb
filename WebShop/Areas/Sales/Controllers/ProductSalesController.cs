@@ -14,8 +14,8 @@ namespace WebShop.Areas.Sales.Controllers
         // GET: Product
         public ActionResult Product()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
             List<PRODUCT> productlist = new List<PRODUCT>();
             List<PRODUCT_Plus> productpluslist = new List<PRODUCT_Plus>();
 
@@ -43,8 +43,8 @@ namespace WebShop.Areas.Sales.Controllers
 
         public ActionResult Product_Detail(string product_id)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             List<PRODUCT> productlist = new List<PRODUCT>();
             List<PRODUCT_Plus> productpluslist = new List<PRODUCT_Plus>();
@@ -73,8 +73,8 @@ namespace WebShop.Areas.Sales.Controllers
 
         public ActionResult Add_To_Cart1(string product_id)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
             List<PRODUCT> productlist = new List<PRODUCT>();
             string user = ViewBag.user_logined;
             string size = "S";
@@ -87,8 +87,8 @@ namespace WebShop.Areas.Sales.Controllers
         [HttpPost]
         public ActionResult Add_To_Cart2(FormCollection form, string product_id)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
             List<PRODUCT> productlist = new List<PRODUCT>();
             List<PRODUCT_Plus> productpluslist = new List<PRODUCT_Plus>();
             var result = db.Database.SqlQuery<PRODUCT>("exec selectallfromPRODUCT").ToList();
@@ -130,8 +130,8 @@ namespace WebShop.Areas.Sales.Controllers
 
         public ActionResult Get_Product_Base_On_Product_Group(string group_id)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
             int id_int = Int32.Parse(group_id);
             var id_var = new SqlParameter("@group_id", id_int);
 
@@ -162,8 +162,8 @@ namespace WebShop.Areas.Sales.Controllers
 
         public ActionResult Get_Product_Base_On_Price(int along)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             var along_var = new SqlParameter("@along", along);
 
@@ -195,8 +195,8 @@ namespace WebShop.Areas.Sales.Controllers
 
         public ActionResult Get_Product_Base_On_Brand(string brand)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             var brand_var = new SqlParameter("@brand", brand);
             List<PRODUCT> productlist = new List<PRODUCT>();
@@ -228,8 +228,8 @@ namespace WebShop.Areas.Sales.Controllers
 
         public ActionResult Get_Product_Base_On_Category(string name)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             var name_var = new SqlParameter("@name", name);
 
@@ -307,8 +307,9 @@ namespace WebShop.Areas.Sales.Controllers
         [HttpGet]
         public ActionResult Add_To_CartAjax(string id)
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
+
             List<PRODUCT> productlist = new List<PRODUCT>();
             string user = ViewBag.user_logined;
             string size = "S";

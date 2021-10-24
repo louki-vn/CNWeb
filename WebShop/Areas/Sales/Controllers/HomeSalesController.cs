@@ -13,8 +13,8 @@ namespace WebShop.Areas.Sales.Controllers
         [HttpGet]
         public ActionResult Home()
         {
-            ViewBag.user_logined = HttpContext.Application["user_logined"];
-            ViewBag.is_logined = HttpContext.Application["is_logined"];
+            ViewBag.user_logined = Session["user_logined"];
+            ViewBag.is_logined = Session["is_logined"];
 
             int doda = 2;
             var id_var = new SqlParameter("@group_id", doda);
