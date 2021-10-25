@@ -1,7 +1,5 @@
 ﻿
-@{
-    Layout = null;
-}
+@{ Layout = null; }
 
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -20,7 +18,7 @@
     <link rel="stylesheet" href="~/Asset/assets/css/bootstrap.min.css">
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="~/Asset/assets/css/style.css">
-    <link rel="stylesheet" href="~/Asset/assets/css/responsive.css">    
+    <link rel="stylesheet" href="~/Asset/assets/css/responsive.css">
 
     <!-- Title Page-->
     <title>Dashboard</title>
@@ -69,8 +67,9 @@
                 <div class="row align-items-center">
                     <!--Desktop Logo-->
                     <div class="logo col-md-2 col-lg-2 d-none d-lg-block">
-                        <a href="@Url.Action("Home", "HomeSales", new { area = "Sales" })">
-                            <img src="/Asset/assets/images/logo.svg" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
+                        <a href="~/HomeSales/Home">
+
+                            <img src="~/Asset/assets/images/logo.svg" alt="Belle Multipurpose Html Template" title="Belle Multipurpose Html Template" />
                         </a>
                     </div>
                     <!--End Desktop Logo-->
@@ -86,19 +85,19 @@
                             <!-- for mobile -->
                             <ul id="siteNav" class="site-nav medium center hidearrow">
                                 <li class="lvl1 parent megamenu">
-                                    <a href="@Url.Action("Index", "HomeAdmin", new { area = "Admin" })" id="1">Trang chủ <i class="anm anm-angle-down-l"></i></a>
+                                    <a href="~/Admin/HomeAdmin" id="1">Trang chủ <i class="anm anm-angle-down-l"></i></a>
                                 </li>
                                 <li class="lvl1 parent megamenu">
-                                    <a href="@Url.Action("Index", "Category", new { area = "Admin" })">Danh mục <i class="anm anm-angle-down-l"></i></a>
+                                    <a href="~/Admin/Category">Danh mục <i class="anm anm-angle-down-l"></i></a>
                                 </li>
                                 <li class="lvl1 parent dropdown">
-                                    <a href="@Url.Action("Index", "ProductAdmin", new { area = "Admin" })">Sản phẩm<i class="anm anm-angle-down-l"></i></a>
+                                    <a href="~/Admin/ProductAdmin">Sản phẩm<i class="anm anm-angle-down-l"></i></a>
                                 </li>
                                 <li class="lvl1 parent dropdown">
-                                    <a href="@Url.Action("Index", "Order", new { area = "Admin" })">Đơn hàng <i class="anm anm-angle-down-l"></i></a>
+                                    <a href="~/Admin/Order">Đơn hàng <i class="anm anm-angle-down-l"></i></a>
                                 </li>
                                 <li class="lvl1 parent dropdown">
-                                    <a href="@Url.Action("Index", "UserData", new { area = "Admin" })">Dữ liệu người dùng<i class="anm anm-angle-down-l"></i></a>
+                                    <a href="~/Admin/UserData">Dữ liệu người dùng<i class="anm anm-angle-down-l"></i></a>
 
                             </ul>
                         </nav>
@@ -140,7 +139,7 @@
                                         </div>
                                     </div>
                                     <div class="account-dropdown__footer">
-                                        <a href="@Url.Action("Logout", "Login", new { area = "Sales"})">
+                                        <a href="~/Sales/Login/Logout">
                                             <i class="zmdi zmdi-power"></i>Logout
                                         </a>
                                     </div>
@@ -158,19 +157,19 @@
             <div class="closemobileMenu"><i class="icon anm anm-times-l pull-right"></i> Close Menu</div>
             <ul id="MobileNav" class="mobile-nav">
                 <li class="lvl1 parent megamenu">
-                    <a href="@Url.Action("Index", "HomeAdmin", new { area = "Admin" })">Trang chủ <i class="anm anm-plus-l"></i></a>
+                    <a href="~/Admin/HomeAdmin">Trang chủ <i class="anm anm-plus-l"></i></a>
                 </li>
                 <li class="lvl1 parent megamenu">
-                    <a href="#">Danh mục <i class="anm anm-plus-l"></i></a>
+                    <a href="~/Admin/Category">Danh mục <i class="anm anm-plus-l"></i></a>
                 </li>
                 <li class="lvl1 parent megamenu">
-                    <a href="product-layout-1.html">Sản phẩm <i class="anm anm-plus-l"></i></a>
+                    <a href="~/Admin/ProductAdmin">Sản phẩm <i class="anm anm-plus-l"></i></a>
                 </li>
                 <li class="lvl1 parent megamenu">
-                    <a href="product-layout-1.html">Đơn hàng <i class="anm anm-plus-l"></i></a>
+                    <a href="~/Admin/Order">Đơn hàng <i class="anm anm-plus-l"></i></a>
                 </li>
                 <li class="lvl1 parent megamenu">
-                    <a href="blog-left-sidebar.html">Dữ liệu người dùng <i class="anm anm-plus-l"></i></a>
+                    <a href="~/Admin/UserData">Dữ liệu người dùng <i class="anm anm-plus-l"></i></a>
                 </li>
             </ul>
         </div>
@@ -188,7 +187,7 @@
                     <div class="footer-bottom">
                         <div class="row">
                             <!--Footer Copyright-->
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 copyright text-center"><span></span> <a href="@Url.Action("Index", null, new { area = "Admin", controller = "HomeAdmin"}, Request.Url.Scheme)">Trang chủ</a></div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 copyright text-center"><span></span> <a href="~/Admin/HomeAdmin">Trang chủ</a></div>
                             <!--End Footer Copyright-->
                         </div>
                     </div>
