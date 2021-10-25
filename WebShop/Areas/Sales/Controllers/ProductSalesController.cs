@@ -139,11 +139,11 @@ namespace WebShop.Areas.Sales.Controllers
                return View("~/Areas/Sales/Views/ProductSales/Product_Detail.cshtml", productpluslist);
           }
 
-          public ActionResult Get_Product_Base_On_Product_Group(string group_id)
+          public ActionResult Get_Product_Base_On_Product_Group(string id)
           {
                ViewBag.user_logined = Session["user_logined"];
                ViewBag.is_logined = Session["is_logined"];
-               int id_int = Int32.Parse(group_id);
+               int id_int = Int32.Parse(id);
                var id_var = new SqlParameter("@group_id", id_int);
 
                List<PRODUCT> productlist = new List<PRODUCT>();
@@ -237,12 +237,12 @@ namespace WebShop.Areas.Sales.Controllers
                return View("~/Areas/Sales/Views/ProductSales/Product.cshtml", productpluslist);
           }
 
-          public ActionResult Get_Product_Base_On_Category(string name)
+          public ActionResult Get_Product_Base_On_Category(string id)
           {
                ViewBag.user_logined = Session["user_logined"];
                ViewBag.is_logined = Session["is_logined"];
 
-               var name_var = new SqlParameter("@name", name);
+               var name_var = new SqlParameter("@name", id);
 
                List<PRODUCT> productlist = new List<PRODUCT>();
                List<PRODUCT_Plus> productpluslist = new List<PRODUCT_Plus>();
