@@ -53,8 +53,8 @@
                         @if (ViewBag.is_logined == 1)
                         {
                             <ul class="customer-links list-inline">
-                                <li>Xin chào <a href="@Url.Action("UserInformation",  "UserInformation", new { area = "Sales" })">@ViewBag.user_logined</a> </li>
-                                <li><a href="@Url.Action("Logout",  "Login", new { area = "Sales" })">Đăng xuất</a></li>
+                                <li>Xin chào <a href="~/Sales/UserInformation/UserInformation">@ViewBag.user_logined</a> </li>
+                                <li><a href="~/Sales/Login/Logout">Đăng xuất</a></li>
                             </ul>
                         }
                         else

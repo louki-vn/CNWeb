@@ -16,7 +16,7 @@
                             <div class="slideshow__text-content middle">
                                 <div class="container">
                                     <div class="wrap-caption right">
-                                        <a href="@Url.Action("Product", "ProductSales", new { area = "Sales"})"><span class="btn">Mua ngay</span> </a>
+                                        <a href="~/Sales/ProductSales/Product"><span class="btn">Mua ngay</span> </a>
                                     </div>
                                 </div>
                             </div>
@@ -30,7 +30,7 @@
                             <div class="slideshow__text-content middle">
                                 <div class="container">
                                     <div class="wrap-caption left">
-                                        <a href="@Url.Action("Product", "ProductSales", new { area = "Sales"})"><span class="btn">Mua ngay</span> </a>
+                                        <a href="~/Sales/ProductSales/Product_Detail"><span class="btn">Mua ngay</span> </a>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                     <div class="row">
                         <div class="col-12 col-sm-6 col-md-6 col-lg-6 pl-0">
                             <div class="inner btmleft">
-                                <a href="@Url.Action("Product_Detail", "ProductSales", new { area = "Sales", product_id = 9 })">
+                                <a href="~/Sales/ProductSales/Product_Detail/9">
                                     <img data-src="/Asset/assets/images/collection/jewellery-collection1.jpg" src="/Asset/assets/images/collection/jewellery-collection1.jpg" alt="" class="blur-up lazyload" />
                                     <span class="ttl">SỰ SANG TRỌNG QUÝ PHÁI</span>
                                 </a>
@@ -63,13 +63,13 @@
                         </div>
                         <div class="col-12 col-sm-6 col-md-6 col-lg-6 pr-0">
                             <div class="inner center">
-                                <a href="@Url.Action("Product_Detail", "ProductSales", new { area = "Sales", product_id = 11 })">
+                                <a href="~/Sales/ProductSales/Product_Detail/9">
                                     <img data-src="/Asset/assets/images/collection/jewellery-collection2.jpg" src="/Asset/assets/images/collection/jewellery-collection2.jpg" alt="" class="blur-up lazyload" />
                                     <span class="ttl">QUÀ CHO NGƯỜI ẤY</span>
                                 </a>
                             </div>
                             <div class="inner btmright mt-4">
-                                <a href="@Url.Action("Product_Detail", "ProductSales", new { area = "Sales", product_id = 10 })">
+                                <a href="~/Sales/ProductSales/Product_Detail/10">
                                     <img data-src="/Asset/assets/images/collection/jewellery-collection3.jpg" src="/Asset/assets/images/collection/jewellery-collection3.jpg" alt="" class="blur-up lazyload" />
                                     <span class="ttl">DÀNH CHO TÌNH YÊU CỦA ĐỜI BẠN</span>
                                 </a>
@@ -122,7 +122,7 @@
                                         <!-- start product image -->
                                         <div class="product-image">
                                             <!-- start product image -->
-                                            <a href="@Url.Action("Product_Detail", "ProductSales", new { area = "Sales", product_id = a.product_id })" class="grid-view-item__link">
+                                            <a href="~/Sales/ProductSales/Product_Detail/@a.product_id)" class="grid-view-item__link">
                                                 <!-- image -->
                                                 <img class="primary blur-up lazyload" data-src="@a.image_link" src="@a.image_link" alt="image" title="product">
                                                 <!-- End image -->
@@ -132,7 +132,7 @@
                                             </a>
                                             <!-- end product image -->
                                             <!-- Start product button -->
-                                            <form class="variants add" action="@Url.Action("Product_Detail", "ProductSales", new { area = "Sales", product_id = a.product_id })" method="post">
+                                            <form class="variants add" action="~/Sales/ProductSales/Product_Detail/@a.product_id" method="post">
                                                 <button class="btn btn-addto-cart" onclick="Add_To_Cart_Click(@ViewBag.is_logined, @a.product_id)" type="button" tabindex="0">Thêm vào giỏ hàng</button>
                                             </form>
                                             <!-- end product button -->
@@ -142,7 +142,7 @@
                                         <div class="product-details text-center">
                                             <!-- product name -->
                                             <div class="product-name">
-                                                <a href="@Url.Action("Product_Detail", "ProductSales", new { area = "Sales" , product_id = a.product_id })">@a.name</a>
+                                                <a href="~/Sales/ProductSales/Product_Detail/@a.product_id">@a.name</a>
                                             </div>
                                             <!-- End product name -->
                                             <!-- product price -->

@@ -12,12 +12,12 @@
             <div class="wrapper"><h1 class="page-width">Đăng nhập</h1></div>
         </div>
     </div>
-    <!--End Page Title-->
+    <!--End Page Title-->href
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
                 <div class="mb-4">                   
-                    <form method="post" action="@Url.Action("Login", "Login", new { area = "Sales" })" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">
+                    <form method="post" action="~/Sales/Login/Login" id="CustomerLoginForm" accept-charset="UTF-8" class="contact-form">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
@@ -36,8 +36,8 @@
                             <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
                                 <input type="submit" name="button" class="btn mb-3" value="Sign In">
                                 <p class="mb-4">
-                                    <a href="@Url.Action("CreateAccount", "CreateAccount", new { area = "Sales" })" id="RecoverPassword">Quên mật khẩu?</a> &nbsp; | &nbsp;
-                                    <a href="@Url.Action("CreateAccount", "CreateAccount", new { area = "Sales" })" id="customer_register_link">Tạo tài khoản</a>
+                                    <a href="~/Sales/CreateAccount/CreateAccount" id="RecoverPassword">Quên mật khẩu?</a> &nbsp; | &nbsp;
+                                    <a href="~/Sales/CreateAccount/CreateAccount" id="customer_register_link">Tạo tài khoản</a>
                                 </p>
                             </div>
                         </div>
