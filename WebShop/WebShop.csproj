@@ -361,6 +361,7 @@
     <Content Include="Asset\admin\vendor\wow\animate.css" />
     <Content Include="Asset\admin\vendor\wow\wow.min.js" />
     <Content Include="Asset\assets\css\bootstrap.min.css" />
+    <Content Include="Asset\assets\css\duy.css" />
     <Content Include="Asset\assets\css\plugins.css" />
     <Content Include="Asset\assets\css\responsive.css" />
     <Content Include="Asset\assets\css\style.css" />
@@ -426,6 +427,7 @@
     <Content Include="Asset\assets\js\nhat22.js" />
     <Content Include="Asset\assets\js\plugins.js" />
     <Content Include="Asset\assets\js\popper.min.js" />
+    <Content Include="Asset\assets\js\scripts.js" />
     <Content Include="Asset\assets\js\vendor\instagram-feed.js" />
     <Content Include="Asset\assets\js\vendor\jquery-3.3.1.min.js" />
     <Content Include="Asset\assets\js\vendor\jquery.cookie.js" />

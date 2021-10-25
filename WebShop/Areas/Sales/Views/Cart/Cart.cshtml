@@ -40,11 +40,11 @@
                                             <div class="cart_item_show">
                                                 <tr class="cart__row border-bottom line1 cart-flex border-top">
                                                     <td class="cart__image-wrapper cart-flex-item">
-                                                        <a href="@Url.Action("Product_Detail", "ProductSales", new { area = "Sales", product_id=@a.product_id })"><img class="cart__image" src="@a.image_link.ToString()" alt="Elastic Waist Dress - Navy / Small"></a>
+                                                        <a href="~/Sales/ProductSales/Product_Detail/@a.product_id"><img class="cart__image" src="@a.image_link.ToString()" alt="Elastic Waist Dress - Navy / Small"></a>
                                                     </td>
                                                     <td class="cart__meta small--text-left cart-flex-item">
                                                         <div class="list-view-item__title">
-                                                            <a href="@Url.Action("Product_Detail", "ProductSales", new { area = "Sales", product_id=@a.product_id })">@a.name </a>
+                                                            <a href="~/Sales/ProductSales/Product_Detail/@a.product_id">@a.name </a>
                                                         </div>
 
                                                         <div class="cart__meta-text">
@@ -70,7 +70,7 @@
                                                         <div><span class="money">@amount VND </span></div>
                                                     </td>
                                                     @*remove button*@
-                                                    <td class="text-center small--hide"><a href="@Url.Action("Remove_Item", "Cart", new { area = "Sales", product_id=@a.product_id })" class="btn btn--secondary cart__remove" title="Remove tem"><i id="remove_button_id" class="icon icon anm anm-times-l"></i></a></td>
+                                                    <td class="text-center small--hide"><a href="~/Sales/Cart/Remove_Item/@a.product_id" class="btn btn--secondary cart__remove" title="Remove tem"><i id="remove_button_id" class="icon icon anm anm-times-l"></i></a></td>
                                                 </tr>
                                             </div>
                                         }
@@ -78,9 +78,9 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <td colspan="3" class="text-left"><a href="@Url.Action("Product", "ProductSales", new { area = "Sales" })" class="btn btn-secondary btn--small cart-continue">Tiếp tục mua sắm</a></td>
+                                        <td colspan="3" class="text-left"><a href="~/Sales/ProductSales/Product" class="btn btn-secondary btn--small cart-continue">Tiếp tục mua sắm</a></td>
                                         <td colspan="3" class="text-right">
-                                            <a href="@Url.Action("Remove_All_Item", "Cart", new { area = "Sales" })" class="btn btn-secondary btn--small  small--hide">Xóa tất cả</a>
+                                            <a href="~/Sales/Cart/Remove_All_Item" class="btn btn-secondary btn--small  small--hide">Xóa tất cả</a>
                                         </td>
                                     </tr>
                                 </tfoot>
@@ -212,7 +212,7 @@
     else
     {
         <h1>Bạn chưa đăng nhập, không thể xem thông tin giỏ hàng</h1>
-        <a href="@Url.Action("Login", "Login", new { area = "Sales" })">Đăng nhập ngay</a>
+        <a href="~/Sales/Login/Login">Đăng nhập ngay</a>
     }
 }
 
