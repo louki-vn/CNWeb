@@ -82,7 +82,7 @@ namespace WebShop.Areas.Sales.Controllers
                return View("~/Areas/Sales/Views/ProductSales/Product_Detail.cshtml", productpluslist);
           }
 
-          public ActionResult Add_To_Cart1(string product_id)
+          public ActionResult Add_To_Cart1(string id)
           {
                ViewBag.user_logined = Session["user_logined"];
                ViewBag.is_logined = Session["is_logined"];
@@ -91,12 +91,12 @@ namespace WebShop.Areas.Sales.Controllers
                string size = "S";
                int item_qty = 1;
 
-               Add_To_Cart(user, Int32.Parse(product_id), item_qty, size, productlist);
+               Add_To_Cart(user, Int32.Parse(id), item_qty, size, productlist);
                return View("~/Areas/Sales/Views/ProductSales/Product.cshtml", productlist);
           }
 
           [HttpPost]
-          public ActionResult Add_To_Cart2(FormCollection form, string product_id)
+          public ActionResult Add_To_Cart2(FormCollection form, string id)
           {
                ViewBag.user_logined = Session["user_logined"];
                ViewBag.is_logined = Session["is_logined"];
@@ -129,21 +129,21 @@ namespace WebShop.Areas.Sales.Controllers
                          size = "S";
                     }
                     int item_qty = Int32.Parse(form.Get("quantity").ToString());
-                    Add_To_Cart(user, Int32.Parse(product_id), item_qty, size, productlist);
+                    Add_To_Cart(user, Int32.Parse(id), item_qty, size, productlist);
                }
                else
                {
 
                }
-               ViewBag.product_id = product_id;
+               ViewBag.product_id = id;
                return View("~/Areas/Sales/Views/ProductSales/Product_Detail.cshtml", productpluslist);
           }
 
-          public ActionResult Get_Product_Base_On_Product_Group(string group_id)
+          public ActionResult Get_Product_Base_On_Product_Group(string id)
           {
                ViewBag.user_logined = Session["user_logined"];
                ViewBag.is_logined = Session["is_logined"];
-               int id_int = Int32.Parse(group_id);
+               int id_int = Int32.Parse(id);
                var id_var = new SqlParameter("@group_id", id_int);
 
                List<PRODUCT> productlist = new List<PRODUCT>();
@@ -171,12 +171,12 @@ namespace WebShop.Areas.Sales.Controllers
                return View("~/Areas/Sales/Views/ProductSales/Product.cshtml", productpluslist);
           }
 
-          public ActionResult Get_Product_Base_On_Price(int along)
+          public ActionResult Get_Product_Base_On_Price(int id)
           {
                ViewBag.user_logined = Session["user_logined"];
                ViewBag.is_logined = Session["is_logined"];
 
-               var along_var = new SqlParameter("@along", along);
+               var along_var = new SqlParameter("@along", id);
 
                List<PRODUCT> productlist = new List<PRODUCT>();
                List<PRODUCT_Plus> productpluslist = new List<PRODUCT_Plus>();
@@ -204,12 +204,12 @@ namespace WebShop.Areas.Sales.Controllers
                return View("~/Areas/Sales/Views/ProductSales/Product.cshtml", productpluslist);
           }
 
-          public ActionResult Get_Product_Base_On_Brand(string brand)
+          public ActionResult Get_Product_Base_On_Brand(string id)
           {
                ViewBag.user_logined = Session["user_logined"];
                ViewBag.is_logined = Session["is_logined"];
 
-               var brand_var = new SqlParameter("@brand", brand);
+               var brand_var = new SqlParameter("@brand", id);
                List<PRODUCT> productlist = new List<PRODUCT>();
                List<PRODUCT_Plus> productpluslist = new List<PRODUCT_Plus>();
 
@@ -237,12 +237,12 @@ namespace WebShop.Areas.Sales.Controllers
                return View("~/Areas/Sales/Views/ProductSales/Product.cshtml", productpluslist);
           }
 
-          public ActionResult Get_Product_Base_On_Category(string name)
+          public ActionResult Get_Product_Base_On_Category(string id)
           {
                ViewBag.user_logined = Session["user_logined"];
                ViewBag.is_logined = Session["is_logined"];
 
-               var name_var = new SqlParameter("@name", name);
+               var name_var = new SqlParameter("@name", id);
 
                List<PRODUCT> productlist = new List<PRODUCT>();
                List<PRODUCT_Plus> productpluslist = new List<PRODUCT_Plus>();

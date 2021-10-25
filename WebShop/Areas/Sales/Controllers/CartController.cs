@@ -13,9 +13,9 @@ namespace WebShop.Areas.Sales.Controllers
         Shop db = new Shop();
         // GET: Cart
 
-        public List<ItemInCart> Get_Data(string username, List<ItemInCart> itemincartlist)
+        public List<ItemInCart> Get_Data(string id, List<ItemInCart> itemincartlist)
         {
-            var user = new SqlParameter("@username", username);
+            var user = new SqlParameter("@username", id);
             var result_member = db.Database.SqlQuery<MEMBER>("exec get_MEMBER_from_username @username", user).ToList();
             int cart_id = result_member[0].member_id;
 
@@ -55,7 +55,7 @@ namespace WebShop.Areas.Sales.Controllers
             return itemincartlist;
         }
 
-        public ActionResult Cart(string username)
+        public ActionResult Cart(string id)
         {
             ViewBag.user_logined = Session["user_logined"];
             ViewBag.is_logined = Session["is_logined"];
@@ -66,12 +66,12 @@ namespace WebShop.Areas.Sales.Controllers
             return View(itemincartlist);
         }
 
-        public ActionResult Remove_Item(string product_id)
+        public ActionResult Remove_Item(string id)
         {
             ViewBag.user_logined = Session["user_logined"];
             ViewBag.is_logined = Session["is_logined"];
 
-            var product_id_var = new SqlParameter("@product_id", product_id);
+            var product_id_var = new SqlParameter("@product_id", id);
             db.Database.ExecuteSqlCommand("exec remove_CART_ITEM_from_product_id @product_id", product_id_var);
 
             var username = Session["user_logined"].ToString();

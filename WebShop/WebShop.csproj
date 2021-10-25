@@ -590,7 +590,6 @@
     <Content Include="Areas\Admin\Views\Order\Report.cshtml" />
     <Content Include="Areas\Admin\Views\ProductAdmin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\UserData\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\UserData\UserInfor.cshtml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
