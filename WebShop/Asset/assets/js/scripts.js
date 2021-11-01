@@ -13,7 +13,7 @@ $.ajax(
                     suggestions.push(item.name);
                });
           }
-     });
+     });``
 
 // tìm kiếm khi thực hiện sự kiện keyup
 inputBox.onkeyup = (e) => {
