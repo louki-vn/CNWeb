@@ -81,6 +81,7 @@ namespace WebShop.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+
         [HttpPost]
         public ActionResult DeleteProduct()
         {

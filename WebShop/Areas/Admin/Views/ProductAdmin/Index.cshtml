@@ -97,10 +97,11 @@
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-3">
-                                                        <label for="file">Hình ảnh sản phẩm</label>
+                                                        <img id="upload_imageproduct" style="width: 100px; height: 70px;" />
+                                                        @*<label for="file">Hình ảnh sản phẩm</label>*@
                                                     </div>
                                                     <div class="col-12 col-md-9">
-                                                        <input type="file" name="file" id="file" />
+                                                        <input onchange="PreviewImage();" type="file" name="file" id="file" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -267,4 +268,13 @@
     }
 }
 
+<script>
+    function PreviewImage() {
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("file").files[0]);
 
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("upload_imageproduct").src = oFREvent.target.result;
+        };
+    };
+</script>
