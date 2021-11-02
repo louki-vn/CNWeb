@@ -9,6 +9,12 @@ namespace WebShop.Models
     [Table("BRAND")]
     public partial class BRAND
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BRAND()
+        {
+            PRODUCTs = new HashSet<PRODUCT>();
+        }
+
         [Key]
         public int brand_id { get; set; }
 
@@ -17,5 +23,8 @@ namespace WebShop.Models
 
         [StringLength(100)]
         public string description { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PRODUCT> PRODUCTs { get; set; }
     }
 }

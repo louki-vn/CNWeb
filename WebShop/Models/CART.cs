@@ -16,6 +16,7 @@ namespace WebShop.Models
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int cart_id { get; set; }
 
         public int amount { get; set; }

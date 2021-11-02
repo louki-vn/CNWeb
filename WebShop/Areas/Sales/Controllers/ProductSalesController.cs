@@ -377,7 +377,7 @@ namespace WebShop.Areas.Sales.Controllers
                     c.sale_id = a.sale_id;
                     c.name = a.name;
                     c.price = a.price;
-                    c.brand = a.brand;
+                    c.brand_id = (int)a.brand_id;
                     c.sold = a.sold;
                     c.size = a.size;
                     c.content = a.content;

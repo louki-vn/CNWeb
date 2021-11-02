@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using WebShop.Models;
 
@@ -23,12 +24,25 @@ namespace WebShop.Areas.Admin.Controllers
             foreach(var item in order)
             {
                 amount += item.amount;
-                total += item.qty;
+                
             }
             //  Số sản phẩm đã bán và tổng doanh thu
             ViewBag.Amount = amount;
             ViewBag.Total = total;
 
+            var topproduct = db.PRODUCTs.SqlQuery("exec SelectTopProduct").ToList();
+            ViewBag.TopProduct = topproduct;
+
+            var category = db.CATEGORies.ToArray();
+            Dictionary<int, string> p = new Dictionary<int, string>();
+            foreach (var item in category)
+            {
+                p.Add(item.category_id, item.name);
+            }
+            ViewBag.Category = p;
+
+            var topmem = db.Database.SqlQuery<Mem_Cart>("exec SelectTopMember").ToList();
+            ViewBag.TopMem = topmem;
             return View();
         }
 

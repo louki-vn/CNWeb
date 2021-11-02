@@ -9,6 +9,12 @@ namespace WebShop.Models
     [Table("TRANSACTION")]
     public partial class TRANSACTION
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TRANSACTION()
+        {
+            ITEM_SOLD = new HashSet<ITEM_SOLD>();
+        }
+
         [Key]
         public int transaction_id { get; set; }
 
@@ -20,10 +26,6 @@ namespace WebShop.Models
         [StringLength(50)]
         public string member_name { get; set; }
 
-        public int product_id { get; set; }
-
-        public int qty { get; set; }
-
         public bool payment { get; set; }
 
         [StringLength(500)]
@@ -34,6 +36,9 @@ namespace WebShop.Models
         public string member_phone_number { get; set; }
 
         public int amount { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ITEM_SOLD> ITEM_SOLD { get; set; }
 
         public virtual MEMBER MEMBER { get; set; }
     }

@@ -13,6 +13,8 @@ namespace WebShop.Models
         public PRODUCT()
         {
             CART_ITEM = new HashSet<CART_ITEM>();
+            ITEM_SOLD = new HashSet<ITEM_SOLD>();
+            REVIEWs = new HashSet<REVIEW>();
         }
 
         [Key]
@@ -27,8 +29,7 @@ namespace WebShop.Models
 
         public int price { get; set; }
 
-        [StringLength(50)]
-        public string brand { get; set; }
+        public int? brand_id { get; set; }
 
         public int sold { get; set; }
 
@@ -46,11 +47,19 @@ namespace WebShop.Models
         [StringLength(500)]
         public string image_list { get; set; }
 
+        public virtual BRAND BRAND { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CART_ITEM> CART_ITEM { get; set; }
 
         public virtual CATEGORY CATEGORY { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ITEM_SOLD> ITEM_SOLD { get; set; }
+
         public virtual SALE SALE { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<REVIEW> REVIEWs { get; set; }
     }
 }

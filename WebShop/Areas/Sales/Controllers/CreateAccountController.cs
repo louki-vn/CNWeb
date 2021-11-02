@@ -39,8 +39,8 @@ namespace WebShop.Areas.Sales.Controllers
                 var namevar = new SqlParameter("@name", name);
                 var phonevar = new SqlParameter("@phone", phone);
                 var addressvar = new SqlParameter("@address", address);
-                db.Database.ExecuteSqlCommand("exec createaccount @username, @name, @password, @phone, @address",
-                                                            username2var, namevar, passvar, phonevar, addressvar);
+                db.Database.ExecuteSqlCommand("exec AddMember @name, @username, @password, @phone, @address",
+                                                            namevar, username2var, passvar, phonevar, addressvar);
 
                 Session["user_logined"] = username;
                 Session["is_logined"] = 1;

@@ -20,7 +20,7 @@
         public int price { get; set; }
 
         [StringLength(50)]
-        public string brand { get; set; }
+        public int brand_id { get; set; }
 
         public int sold { get; set; }
 
