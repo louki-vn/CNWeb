@@ -8,7 +8,7 @@ namespace WebShop.Controllers
 {
     public class HomeController : Controller
     {
-        // sieu cmttttfff
+        // sieu cmttttfffff
         public ActionResult Index()
         {
             return View();
